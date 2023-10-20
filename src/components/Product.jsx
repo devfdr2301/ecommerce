@@ -1,16 +1,17 @@
 import React from 'react'
-import p1 from '../assets/p1.png'
+import { BsFillSuitHeartFill } from 'react-icons/bs'
 import Badge from './Badge'
-import {BsFillSuitHeartFill} from 'react-icons/bs'
 import Flex from './Flex'
 import Image from './Image'
 
-const Product = () => {
+const Product = (props) => {
+  const data = props.productItem
+  console.log(data);
   return (
     <div>
         <div className='relative overflow-y-hidden group'>
                 {/* <img src={p1} alt="" /> */}
-                <Image imgSrc={p1}/>
+                <Image imgSrc={data.images[0]} className='w-[370px] h-[370px] object-cover'/>
                 <Badge title='New'></Badge>
                 <div className='bg-[#F5F5F5] h-[156px] group-hover:bottom-0 duration-300 absolute  bottom-[-158px] w-full pt-[25px] pr-[30px]'>
                     <Flex className='flex items-center justify-end gap-x-3.5'>
@@ -29,7 +30,7 @@ const Product = () => {
         </div>
         <div className='mt-[24px]'>
             <Flex className='flex justify-between'>
-                <h3 className='font-Sans font-bold text-secondary text-[20px]'>Basic Crew Neck Tee</h3>
+                <h3 className='font-Sans font-bold text-secondary text-[20px]'>{data.title}</h3>
                 <p className='font-Sans  text-primary text-[16px]'>$44.00</p>
             </Flex>
             <p className='font-Sans  text-primary text-[16px] mt-[15px]'>Black</p>
